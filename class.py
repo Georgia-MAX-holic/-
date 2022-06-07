@@ -24,3 +24,42 @@ print(cal1.b)
 print(cal1.add())
 
 
+####################################################################
+
+#클래스 변수 : 인스턴스들이 공유하는 변수
+class Robot:
+    population = 0
+    # 생성자 함수 
+    def __init__(self, name, code):
+        self.name = name # 인스턴스 변수 
+        self.code = code   # 인스턴스 변수 
+        Robot.population+=1
+    #인스턴스 매서드     
+    def say_hi(self):
+        print("hi",self.name)
+    
+    #인스턴스 매서드 
+    def cal_add(self,a,b):
+        return a+b
+    
+    #인스턴스 매서드             
+    def die(self):
+        print({self.name} ,"is being destroyed!")
+        Robot.population -=1
+        if Robot.population ==0:
+            print ( {self.name}"is last one")
+        else:
+            print("There are still "{Robot.population} "robots working")
+        
+
+    @classmethod      
+    def how_many(cls):
+        print("we have",{cls.population},"robots.")
+    
+print(Robot.population)        
+siri = Robot("siri", 20161399) # 1
+team = Robot("jhon" , 19171399) #2
+kal = Robot("luka", 132456789) # 3
+lus = Robot("lon", 132456789) # 4
+
+Robot.die() # Robot = cls  , Robot 안에 있는 population을 측정 
