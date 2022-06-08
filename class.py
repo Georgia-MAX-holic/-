@@ -117,3 +117,71 @@ print(droid1)  # <__main__.Robot object at 0x7fde1c742110> -> R2-D2 robot!!
 
 
 droid1()
+########################################################################################
+
+class Robot:
+
+    """
+    [Robot Class]
+    Date : ??:??:??
+    Author : Amaco
+    """
+
+
+    def __init__(self, name):
+        self.name = name
+   
+
+    def die(self):
+        print(f"{self.name} is being destroyed!")
+        Robot.population -= 1
+        if Robot.population == 0:
+            print(f"{self.name} was the last one.")
+        else:
+            print(f"There are still {Robot.population} robots working.")
+
+    def say_hi(self):
+        print(f"Greetings, my masters call me {self.name}.")
+
+    def cal_add(self, a, b):
+        return a + b
+
+    @classmethod
+    def how_many(cls):
+        return f"We have {cls.population} robots."
+
+    @staticmethod
+    def are_you_robot():
+       
+        print("yes!!")
+
+    def __str__(self):
+        return f"{self.name} robot!!"
+
+    def __call__(self):
+        print("call!")
+        return f"{self.name} call!!"
+    
+    
+class Siri(Robot):
+    def call_me(self):
+        print("네?")
+    
+    def cal_mul(self,a,b):
+        self.a = a 
+        return a*b
+    
+    def name(self, name):
+        print(self.name)
+        
+    @classmethod
+    def hello_apple(cls):
+        print(f"{cls}hello apple")
+
+siri = Siri("luka")
+siri.call_me()
+print(siri.cal_mul(7,8))
+print(siri.name)
+print(siri.a)
+siri.hello_apple()
+print(siri.cal_mul(7,8))
